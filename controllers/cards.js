@@ -20,16 +20,16 @@ module.exports.createCard = (req, res) => {
       if (err.name === 'ValidationError') {
         res.status(400).send({ message: 'Переданы некорректные данные при создании карточки' });
       } else {
-        res.status(500).send({ message: 'Переданы некорректные данные при создании карточки' });
+        res.status(500).send({ message: 'Произошла ошибка' });
       }
     });
 };
 
-module.exports.getCards = (res) => {
+module.exports.getCards = (req, res) => {
   Card.find({})
     .then((cards) => res.send({ cards }))
     .catch(() => {
-      res.status(500).send({ message: 'Запрашиваемые карточки не найдены' });
+      res.status(500).send({ message: 'Произошла ошибка' });
     });
 };
 
@@ -46,7 +46,7 @@ module.exports.deleteCard = (req, res) => {
       if (err.name === 'CastError') {
         res.status(400).send({ message: 'Невалидный id ' });
       } else {
-        res.status(500).send({ message: 'Карточка с указанным _id не найдена' });
+        res.status(500).send({ message: 'Произошла ошибка' });
       }
     });
 };
@@ -75,7 +75,7 @@ module.exports.likeCard = (req, res) => {
       if (err.name === 'CastError') {
         res.status(400).send({ message: 'Невалидный id ' });
       } else {
-        res.status(500).send({ message: 'Переданы некорректные данные для постановки лайка' });
+        res.status(500).send({ message: 'Произошла ошибка' });
       }
     });
 };
@@ -104,7 +104,7 @@ module.exports.dislikeCard = (req, res) => {
       if (err.name === 'CastError') {
         res.status(400).send({ message: 'Невалидный id ' });
       } else {
-        res.status(500).send({ message: 'Переданы некорректные данные для снятия лайка' });
+        res.status(500).send({ message: 'Произошла ошибка' });
       }
     });
 };

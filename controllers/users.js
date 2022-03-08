@@ -20,12 +20,12 @@ module.exports.getUserID = (req, res) => {
       if (err.name === 'CastError') {
         res.status(400).send({ message: 'Невалидный id ' });
       } else {
-        res.status(500).send({ message: 'Пользователь по указанному _id не найден' });
+        res.status(500).send({ message: 'Произошла ошибка' });
       }
     });
 };
 
-module.exports.getUsers = (res) => {
+module.exports.getUsers = (req, res) => {
   User.find({})
     .then((users) => res.send(users))
     .catch((err) => {
@@ -49,7 +49,7 @@ module.exports.createUser = (req, res) => {
       if (err.name === 'ValidationError') {
         res.status(400).send({ message: 'Переданы некорректные данные при создании пользователя' });
       } else {
-        res.status(500).send({ message: 'Переданы некорректные данные при создании пользователя' });
+        res.status(500).send({ message: 'Произошла ошибка' });
       }
     });
 };
@@ -75,7 +75,7 @@ module.exports.updateProfileUser = (req, res) => {
       if (err.name === 'ValidationError') {
         res.status(400).send({ message: 'Переданы некорректные данные при обновлении профиля' });
       } else {
-        res.status(500).send({ message: 'Переданы некорректные данные при обновлении профиля' });
+        res.status(500).send({ message: 'Произошла ошибка' });
       }
     });
 };
@@ -101,7 +101,7 @@ module.exports.updateAvatarUser = (req, res) => {
       if (err.name === 'ValidationError') {
         res.status(400).send({ message: 'Переданы некорректные данные при обновлении аватара' });
       } else {
-        res.status(500).send({ message: 'Переданы некорректные данные при обновлении аватара' });
+        res.status(500).send({ message: 'Произошла ошибка' });
       }
     });
 };
