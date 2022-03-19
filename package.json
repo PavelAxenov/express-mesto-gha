@@ -14,7 +14,7 @@
     "url": "git+https://github.com/KishlyanovP/express-mesto-gha.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kishlyanov Pavel. Бэкенд для проекта mesto.",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/KishlyanovP/express-mesto-gha/issues"
